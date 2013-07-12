@@ -1,0 +1,24 @@
+/* Default SCSS file. Please place all SCSS files in the scss directory. */
+
+html {
+	overflow-y:scroll;
+}
+body {
+}
+
+div.active {
+	background-color: lightgray;
+}
+
+.sidebar {
+	width:300px;
+	float: left;
+	background-color: lightgray;
+	height:100%;
+	position: fixed;
+}
+
+.main {
+	overflow: hidden;
+	margin-left: 310px;
+}

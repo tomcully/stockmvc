@@ -1,0 +1,14 @@
+<h2>New Category</h2>
+
+{{view "App.BreadcrumbView"}}
+
+<div>
+	Name: {{view "App.TextControl" valueBinding="newName"}}
+	<button {{action "createNew"}}>Create</button>
+</div>
+
+{{#view displayObserveBinding="errors" class="error"}}
+	{{#valueEach "parent.errors"}}
+		<div>{{this}}</div>
+	{{/valueEach}}
+{{/view}}

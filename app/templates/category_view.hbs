@@ -1,0 +1,14 @@
+<h2>Category '{{content.name}}'</h1>
+
+{{view "App.BreadcrumbView"}}
+
+<h3>Subcategories</h3>
+{{#collection collectionObserveBinding="content.categories" tag="div" collectionTag="div"}}
+	<span {{action "remove" target="App.categoriesController" content=content}}>x</span> <a href="/categories/{{valueOf "content.getLocalStorageId"}}">{{content.name}}</a>
+{{/collection}}
+<a href="/categories/{{valueOf "content.getLocalStorageId"}}/new">Create New Subcategory</a>
+
+<h3>Products</h3>
+{{#collection collectionObserveBinding="content.products" tag="div" collectionTag="div"}}
+	<a href="/products/{{valueOf "content.getLocalStorageId"}}">{{content.name}}</a>
+{{/collection}}

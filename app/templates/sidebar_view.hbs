@@ -1,0 +1,9 @@
+<h1>Stock MVC</h1>
+
+<h2>Categories</h2>
+
+{{#collection collectionObserveBinding="App.categoriesController.items" tag="div" collectionTag="div"}}
+	<span {{action "remove" target="App.categoriesController" content=content}}>x</span> <a href="/categories/{{valueOf "content.getLocalStorageId"}}">{{content.name}}</a>
+{{/collection}}
+
+<a href="/categories/new">Create New</a>

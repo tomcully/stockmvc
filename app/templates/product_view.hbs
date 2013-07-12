@@ -1,0 +1,10 @@
+<h2>Product '{{content.name}}'</h1>
+
+{{view "App.BreadcrumbView"}}
+
+<div>
+	Name: {{view "App.TextControl" valueBinding="content.name"}}
+</div>
+<div>
+	Stock Amount: {{view "App.TextControl" valueBinding="content.stock_level"}}
+</div>

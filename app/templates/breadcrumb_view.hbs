@@ -1,0 +1,4 @@
+<a href="/">Root</a>
+{{#collection collectionBinding="App.categoriesController.breadcrumb" tag="span" collectionTag="span"}}
+ 	- <a href="/categories/{{valueOf "content.getLocalStorageId"}}">{{content.name}}</a>
+{{/collection}}
