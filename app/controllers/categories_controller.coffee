@@ -7,6 +7,7 @@ class App.CategoriesController extends Mozart.Controller
     App.Category.bind('change',@updateTopCategories)
     @updateTopCategories()
 
+    @setActive(null)
     @bind('change:current', @updateBreadcrumb)
 
   setActive: (instance) =>

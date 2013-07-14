@@ -4,6 +4,11 @@ class App.ProductsController extends Mozart.Controller
     App.Product.loadAllLocalStorage()
     App.Product.loadAllLocalStorage()
 
+    @setActive(null)
+
+  setActive: (instance) =>
+    @set 'current', instance
+
   setActiveById: (id) =>
     cid = App.Product.getLocalStorageClientId(id)
     @set 'current', App.Product.findById(cid)
