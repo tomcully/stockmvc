@@ -1,4 +1,3 @@
-App.mainController = App.MainController.create()
 App.categoriesController = App.CategoriesController.create()
 App.productsController = App.ProductsController.create()
 
