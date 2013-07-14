@@ -9,7 +9,10 @@ class App.CategoriesController extends Mozart.Controller
 
     @bind('change:current', @updateBreadcrumb)
 
-  setActive: (id) =>
+  setActive: (instance) =>
+    @set 'current', instance
+    
+  setActiveById: (id) =>
     cid = App.Category.getLocalStorageClientId(id)
     @set 'current', App.Category.findById(cid)
     @current?
@@ -33,3 +36,6 @@ class App.CategoriesController extends Mozart.Controller
       out.unshift(t)
       t = App.Category.findById(t.parent_id)
     @set 'breadcrumb', out
+
+  navigateToCurrent: =>
+    App.Application.mainLayout.navigateRoute('/categories/'+@current.getLocalStorageId())

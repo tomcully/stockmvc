@@ -1,0 +1,16 @@
+<h2>New Product</h2>
+
+{{view "App.BreadcrumbView"}}
+
+<div>
+	<div><span class="textboxlabel">Name:</span>{{view "App.TextControl" valueBinding="newName"}}</div>
+	<div><span class="textboxlabel">Stock Level:</span>{{view "App.TextControl" valueBinding="newStockLevel"}}</div>
+	{{#view displayObserveBinding="errors" classHtml="error"}}
+		{{#valueEach "parent.errors"}}
+			<div>{{this}}</div>
+		{{/valueEach}}
+	{{/view}}
+	<button {{action "createNew"}}>Create</button>
+</div>
+
+

@@ -26,28 +26,34 @@ App.Application.set 'mainLayout', Mozart.Layout.create(
       viewClass: App.CategoryNewView
       path: "/categories/new"
       enter: (data) =>
-        App.categoriesController.setActive(null)
+        App.categoriesController.setActiveById(null)
         true
         
     Mozart.Route.create
       viewClass: App.CategoryView
       path: "/categories/:id"
       enter: (data) =>
-        App.categoriesController.setActive(data.id)
+        App.categoriesController.setActiveById(data.id)
 
     Mozart.Route.create
       viewClass: App.CategoryNewView
       path: "/categories/:id/new"
       enter: (data) =>
-        App.categoriesController.setActive(data.id)
+        App.categoriesController.setActiveById(data.id)
         true
-
-
+    
     Mozart.Route.create
       viewClass: App.ProductView
       path: "/products/:id"
       enter: (data) =>
-        App.productsController.setActive(data.id)
+        App.productsController.setActiveById(data.id)
+
+    Mozart.Route.create
+      viewClass: App.ProductNewView
+      path: "/categories/:id/newproduct"
+      enter: (data) =>
+        App.categoriesController.setActiveById(data.id)
+        true
   ]
 )
 

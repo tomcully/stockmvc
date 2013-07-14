@@ -15,4 +15,6 @@ class App.CategoryNewView extends Mozart.View
       return
 
     newCategory = App.categoriesController.createNew(@newName)
-    @layout.navigateRoute('/categories/'+newCategory.getLocalStorageId())
+
+    App.categoriesController.setActive(newCategory)
+    App.categoriesController.navigateToCurrent()

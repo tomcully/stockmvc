@@ -3,8 +3,12 @@
 {{view "App.BreadcrumbView"}}
 
 <div>
-	Name: {{view "App.TextControl" valueBinding="content.name"}}
+	Name: {{view "App.TextControl" valueBinding="name"}}
 </div>
 <div>
-	Stock Amount: {{view "App.TextControl" valueBinding="content.stock_level"}}
+	Stock Amount: {{view "App.TextControl" valueBinding="stock_level"}}
 </div>
+{{#view displayObserveBinding="isDirty"}}
+	<button {{action "save" target="parent"}}>Save</button>
+	<button {{action "cancel" target="parent"}}>Cancel</button>
+{{/view}}

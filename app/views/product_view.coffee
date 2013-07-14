@@ -5,16 +5,26 @@ class App.ProductView extends Mozart.View
 
   init: ->
     super
-    @bind('change:content', @updateBreadcrumb)
+    @bind('change:content', @updateContent)
+    @bind('change:name', @checkDirty)
+    @bind('change:stock_level', @checkDirty)
 
   afterRender: =>
-    @updateBreadcrumb()
+    @updateContent()
 
-  updateBreadcrumb: =>
-    out = ""
-    t = App.Category.findById(@content.category_id)
-    while t?
-      out += " - "+t.name if t?
-      t = App.Category.findById(t.parent_id)
-    @set 'breadcrumb', 'Root '+out+" - "+@content.name
-    true
+  updateContent: =>
+    @set('name', @content.name)
+    @set('stock_level', @content.stock_level)
+
+  save: =>
+    @content.set('name', @name)
+    @content.set('stock_level', @stock_level)
+    @content.save()
+
+    App.categoriesController.navigateToCurrent()
+
+  cancel: =>
+    @updateContent()
+
+  checkDirty: =>
+    @set 'isDirty', @name != @content.name or @stock_level != @content.stock_level

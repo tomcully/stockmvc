@@ -10,5 +10,6 @@
 
 <h3>Products</h3>
 {{#collection collectionObserveBinding="content.products" tag="div" collectionTag="div"}}
-	<a href="/products/{{valueOf "content.getLocalStorageId"}}">{{content.name}}</a>
+	<span {{action "remove" target="App.productsController" content=content}}>x</span> <a href="/products/{{valueOf "content.getLocalStorageId"}}">{{content.name}}</a>
 {{/collection}}
+<a href="/categories/{{valueOf "content.getLocalStorageId"}}/newproduct">Create New Product</a>
